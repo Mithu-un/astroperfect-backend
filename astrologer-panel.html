@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Login to AstroPerfect</h2>
+  <input id="email" placeholder="Email"><br>
+  <input id="password" type="password" placeholder="Password"><br>
+  <select id="role">
+    <option>User</option>
+    <option>Astrologer</option>
+    <option>Admin</option>
+  </select><br>
+  <button onclick="login()">Login</button>
+  <p id="msg"></p>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+
+      fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, role })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("msg").innerText = data.success ? "? Login Success!" : "? Failed.";
+      });
+    }
+  </script>
+</body>
+</html>

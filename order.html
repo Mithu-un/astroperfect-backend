@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ask Astrologer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Place a Question</h2>
+  <input id="question" placeholder="Your Question">
+  <button onclick="submitOrder()">Submit</button>
+  <script>
+    function submitOrder() {
+      const q = document.getElementById("question").value;
+      fetch("http://localhost:5000/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: q })
+      }).then(() => alert("Submitted!"));
+    }
+  </script>
+</body>
+</html>

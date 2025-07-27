@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Kundli Generator</title>
+</head>
+<body>
+  <h2>Basic AI Kundli Generator</h2>
+  <input type="text" id="name" placeholder="Your Name"><br>
+  <input type="date" id="dob"><br>
+  <input type="time" id="tob"><br>
+  <input type="text" id="place" placeholder="Birth Place"><br>
+  <button onclick="generateKundli()">Generate</button>
+  <div id="result"></div>
+
+  <script>
+    function generateKundli() {
+      const name = document.getElementById("name").value;
+      const dob = document.getElementById("dob").value;
+      const tob = document.getElementById("tob").value;
+      const place = document.getElementById("place").value;
+
+      const result = `
+        <h3>?? AI Generated Kundli for ${name}</h3>
+        <p><b>Date of Birth:</b> ${dob}</p>
+        <p><b>Time of Birth:</b> ${tob}</p>
+        <p><b>Place:</b> ${place}</p>
+        <p><b>Predictions:</b> You are intellectual, strong-minded & spiritually inclined. Great career path ahead. You may face ups and downs in relationships, but success is guaranteed if you stay focused.</p>
+      `;
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: linear-gradient(to right, #e0f7fa, #fff);
+}
+input, button, select {
+  margin: 8px 0;
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+}
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: darkblue;
+}

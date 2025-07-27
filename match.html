@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marriage Match</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h2>Marriage Match Form</h2>
+  <input id="boyName" placeholder="Boy's Name">
+  <input id="girlName" placeholder="Girl's Name">
+  <button onclick="downloadPDF()">Download PDF</button>
+
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const boy = document.getElementById("boyName").value;
+      const girl = document.getElementById("girlName").value;
+
+      doc.setFontSize(18);
+      doc.text("?? Marriage Match Report", 20, 20);
+      doc.setFontSize(12);
+      doc.text(Boy: ${boy}, 20, 40);
+      doc.text(Girl: ${girl}, 20, 50);
+      doc.text("Matching Score: 32/36 ??", 20, 65);
+      doc.text("Result: Suitable match based on traditional guna milan.", 20, 75);
+
+      doc.save("Marriage-Kundli-Match.pdf");
+    }
+  </script>
+</body>
+</html>
